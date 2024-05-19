@@ -1,81 +1,57 @@
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.*;
-import java.net.*;
-import java.awt.*;
+package javiergs;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 
-public class Client implements Runnable, ActionListener {
+public class Client implements Runnable {
 	
-	private Socket socket;
-	private ObjectOutputStream outputStream;
-	private ClientGUI clientGUI;
+	private static final String IP = "localhost";
+	private static final int PORT = 8888;
 	
-	public Client(ClientGUI clientGUI) {
-		this.clientGUI = clientGUI;
-		System.out.println("0");
-		connectToServer();
-		System.out.println("00");
-		// Sending random ball positions every 1 second for demonstration
-		Timer timer = new Timer(1000, this);
-		timer.start();
-		System.out.println("000");
-	}
+	private final ObjectOutputStream outputStream;
+	private final ObjectInputStream inputStream;
+	private boolean isReady;
 	
-	private void connectToServer() {
-		System.out.println("1");
-		try {
-			System.out.println("2");
-			socket = new Socket("localhost", 8888); // Change this to your server address
-			outputStream = new ObjectOutputStream(socket.getOutputStream());
-			System.out.println("3");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void sendBallPosition(Point position) {
-		try {
-			outputStream.writeObject(position);
-			outputStream.flush();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public Client() throws IOException {
+		Socket socket = new Socket(IP, PORT);
+		outputStream = new ObjectOutputStream(socket.getOutputStream());
+		inputStream = new ObjectInputStream(socket.getInputStream());
+		isReady = true;
 	}
 	
 	@Override
 	public void run() {
-		System.out.println("100 ");
-		try {
-			System.out.println("120 ");
-			ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
-			System.out.println("140 ");
-			while (true) {
-				System.out.println("160 ");
-				Point ballPosition = (Point) inputStream.readObject();
-				System.out.println("170 ");
-				clientGUI.updateBallPosition(ballPosition);
-				System.out.println("180 ");
+		while (true) {
+			try {
+				Thread.sleep(1000 / 30);
+				receive();
+				send();
+			} catch (Exception e) {
+				//throw new RuntimeException(e);
 			}
-		} catch (Exception e) {
-		//	e.printStackTrace();
-			System.out.println(">>>>> EEEERRRROORRRR " + e.getMessage());
 		}
-		System.out.println("200 ");
 	}
 	
-	public static void main(String[] args) {
-		ClientGUI clientGUI = new ClientGUI();
-		Client client = new Client(clientGUI);
-		new Thread(client).start();
-		
-
+	private void send() throws IOException {
+		PongData pongData = PongBrain.getInstance().getPongData().clone();
+		outputStream.writeObject(pongData);
+		outputStream.flush();
 	}
 	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		Point position = new Point((int) (Math.random() * 300), (int) (Math.random() * 300));
-		sendBallPosition(position);
+	private void receive() {
+		try {
+			PongData pongData = (PongData) inputStream.readObject();
+			PongBrain.getInstance().setServerPlayerY(pongData.getServerPlayerY());
+			// create an engine for the pong game, i,e, the ball position logic
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
+	
+	public boolean isReady() {
+		return isReady;
+	}
+	
 }

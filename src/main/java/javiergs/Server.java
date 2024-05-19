@@ -1,50 +1,59 @@
-import java.io.*;
-import java.net.*;
-import java.awt.*;
+package javiergs;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class Server implements Runnable {
 	
-	private ServerSocket serverSocket;
-	private Socket clientSocket;
-	private ObjectOutputStream outputStream;
+	private static final int PORT = 8888;
 	
-	public Server() {
-		startServer();
-	}
+	private final ObjectOutputStream outputStream;
+	private final ObjectInputStream inputStream;
+	private boolean isReady;
 	
-	private void startServer() {
-		try {
-			serverSocket = new ServerSocket(8888); // Change this to your desired port
-			clientSocket = serverSocket.accept();
-			outputStream = new ObjectOutputStream(clientSocket.getOutputStream());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 	
-	public void sendBallPosition(Point position) {
-		try {
-			outputStream.writeObject(position);
-			outputStream.flush();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public Server() throws IOException {
+		ServerSocket serverSocket = new ServerSocket(PORT);
+		Socket clientSocket = serverSocket.accept();
+		outputStream = new ObjectOutputStream(clientSocket.getOutputStream());
+		inputStream = new ObjectInputStream(clientSocket.getInputStream());
+		isReady = true;
 	}
 	
 	@Override
 	public void run() {
 		while (true) {
 			try {
-				Thread.sleep(500);
-				sendBallPosition(new Point((int) (Math.random() * 400), (int) (Math.random() * 400)));
-			} catch (InterruptedException e) {
-				throw new RuntimeException(e);
+				Thread.sleep(1000 / 30);
+				send();
+				receive();
+			} catch (Exception e) {
+				// throw new RuntimeException(e);
 			}
 		}
 	}
 	
-	public static void main(String[] args) {
-		Server server = new Server();
-		new Thread(server).start();
+	private void send() throws IOException {
+		PongData pongData = PongBrain.getInstance().getPongData().clone();
+		outputStream.writeObject(pongData);
+		outputStream.flush();
 	}
+	
+	private void receive() {
+		try {
+			PongData pongData = (PongData) inputStream.readObject();
+			PongBrain.getInstance().setClientPlayerY(pongData.getClientPlayerY());
+			// create an engine for the pong game, i,e, the ball position logic
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public boolean isReady() {
+		return isReady;
+	}
+	
 }
