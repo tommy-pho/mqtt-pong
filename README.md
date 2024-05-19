@@ -15,8 +15,15 @@ To execute the client run as:
 java -jar javiergs.PongGameClient
 ```
 <style>
-td, th {
-   border: none!important;
+table {
+    border-collapse: collapse;
+}
+table, th, td {
+   border: none;
+}
+blockquote {
+    border-left: none;
+    padding-left: 10px;
 }
 </style>
 
