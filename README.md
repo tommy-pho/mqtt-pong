@@ -14,6 +14,11 @@ To execute the client run as:
 ```
 java -jar javiergs.PongGameClient
 ```
+<style>
+td, th {
+   border: none!important;
+}
+</style>
 
 | col 1      | col 2      |
 |------------|-------------|
