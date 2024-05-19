@@ -3,9 +3,9 @@
 # Pong-Game
 A Pong Game implemented to exemplify Client-Server architecture and multi-threading
 <br>
-## Execute
+## Running
 
-To execute the server run as:
+To run the server run as:
 ```
 java -jar javiergs.PongGameServer
 ```
