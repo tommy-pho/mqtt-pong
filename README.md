@@ -15,6 +15,8 @@ To execute the client run as:
 java -jar javiergs.PongGameClient
 ```
 
+![My Image Alt Text]([myimage.jpg?classes=caption](https://github.com/CSC308/Pong-Game/assets/3814755/b3dcb362-294e-4ad7-9562-2203557a4f45 "My Image Caption")
+
 <p align="center">
 <figure>
   <img src="https://github.com/CSC308/Pong-Game/assets/3814755/b3dcb362-294e-4ad7-9562-2203557a4f45" size="400">
