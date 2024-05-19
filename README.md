@@ -18,3 +18,6 @@ Running a server shows a panel where a player control left side and received cli
 
 ![Screenshot](https://github.com/CSC308/Pong-Game/assets/3814755/b3dcb362-294e-4ad7-9562-2203557a4f45)
 
+## Running
+
+![Client-Server Multi Threading Pong Game](https://github.com/CSC308/Pong-Game/assets/3814755/1a49db1d-4a12-4729-8e90-afb829567c3b)
