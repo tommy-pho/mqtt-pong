@@ -18,13 +18,13 @@ java -jar javiergs.PongGameClient
 <p align="center">
 <figure>
   <img src="https://github.com/CSC308/Pong-Game/assets/3814755/b3dcb362-294e-4ad7-9562-2203557a4f45" size="400" title="Server running - player control left side and received client position via socket.">
-  <figcaption>Server running - player control left side and received client position via socket.</figcaption>
+  <figcaption align="center">Server running - player control left side and received client position via socket.</figcaption>
 </figure>
 </p>
 
-![](https://github.com/CSC308/Pong-Game/assets/3814755/b3dcb362-294e-4ad7-9562-2203557a4f45 "zzz")
+![](https://github.com/CSC308/Pong-Game/assets/3814755/b3dcb362-294e-4ad7-9562-2203557a4f45)
 *Server running - player control left side and received client position via socket*
 
-![](https://github.com/CSC308/Pong-Game/assets/3814755/ef7e3db3-14c4-4caa-9b61-9aec075682dc "ssss")
+![](https://github.com/CSC308/Pong-Game/assets/3814755/ef7e3db3-14c4-4caa-9b61-9aec075682dc)
 *Client running - player control right side and received server position via socket*
 
