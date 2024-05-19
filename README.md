@@ -18,7 +18,7 @@ java -jar javiergs.PongGameClient
 
 Running a server shows a panel where a player control left side and received client position via socket; running a client shows the player control right side and received server position via socket.
 
-![View](https://github.com/CSC308/Pong-Game/assets/3814755/b3dcb362-294e-4ad7-9562-2203557a4f45 | width=400)
+![](https://github.com/CSC308/Pong-Game/assets/3814755/b3dcb362-294e-4ad7-9562-2203557a4f45){: width="400"}
 
 ## Blueprint
 
