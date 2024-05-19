@@ -14,18 +14,23 @@ To execute the client run as:
 ```
 java -jar javiergs.PongGameClient
 ```
-<style>
-table {
-    border-collapse: collapse;
-}
-table, th, td {
-   border: none;
-}
-blockquote {
-    border-left: none;
-    padding-left: 10px;
-}
-</style>
+
+
+<table class="images" width="100%"  style="border:0px solid white; width:100%;">
+    <tr style="border: 0px;">
+        <td width="33%" style="border:0px; width:33.33%">
+            <img src="..." />
+        </td>
+        <td width="33%" style="border:0px; width:33.33%">
+            <img src="..." />
+        </td>
+        <td width="33%" style="border:0px; width:33.33%">
+            <img src="..." />
+        </td>
+    </tr>
+</table>
+
+
 
 | col 1      | col 2      |
 |------------|-------------|
