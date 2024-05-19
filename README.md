@@ -14,10 +14,12 @@ To execute the client run as:
 ```
 java -jar javiergs.PongGameClient
 ```
+## User Interface
+
 Running a server shows a panel where a player control left side and received client position via socket; running a client shows the player control right side and received server position via socket.
 
-![Screenshot](https://github.com/CSC308/Pong-Game/assets/3814755/b3dcb362-294e-4ad7-9562-2203557a4f45)
+![View](https://github.com/CSC308/Pong-Game/assets/3814755/b3dcb362-294e-4ad7-9562-2203557a4f45 | width=400)
 
-## Running
+## Blueprint
 
-![Client-Server Multi Threading Pong Game](https://github.com/CSC308/Pong-Game/assets/3814755/1a49db1d-4a12-4729-8e90-afb829567c3b)
+![Class Diagram](https://github.com/CSC308/Pong-Game/assets/3814755/1a49db1d-4a12-4729-8e90-afb829567c3b | width=400)
