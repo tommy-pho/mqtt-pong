@@ -26,3 +26,4 @@ A drafted class diagram of the current release is as follows:
 <p align="center">
 <IMG SRC="https://github.com/CSC308/Pong-Game/assets/3814755/9fa79653-9b90-4436-b7b9-d1e1d241870d">
 </p>
+![Class Diagram1](https://github.com/CSC308/Pong-Game/assets/3814755/74ee88e4-9f4f-42ad-b57f-7ba406d01c47)
