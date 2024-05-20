@@ -23,9 +23,5 @@ Running a server shows a panel where a player control left side and received cli
   
 ## Blueprint
 A drafted class diagram of the current release is as follows:
-<p align="center">
-<IMG SRC="https://github.com/CSC308/Pong-Game/assets/3814755/9fa79653-9b90-4436-b7b9-d1e1d241870d">
-<IMG SRC="https://github.com/CSC308/Pong-Game/assets/3814755/99d55fef-00b1-4ef2-a2fc-98218e860a3f">
-</p>
 
-![Class Diagram1](https://github.com/CSC308/Pong-Game/assets/3814755/99d55fef-00b1-4ef2-a2fc-98218e860a3f)
+<IMG width=400 SRC="https://github.com/CSC308/Pong-Game/assets/3814755/99d55fef-00b1-4ef2-a2fc-98218e860a3f">
