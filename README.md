@@ -25,4 +25,3 @@ Running a server shows a panel where a player control left side and received cli
 A drafted class diagram of the current release is as follows:
 
 <IMG SRC="https://github.com/CSC308/Pong-Game/assets/3814755/edb0afd9-e1c6-45f5-b9e4-022a1e170688">
-![Class Diagram1](https://github.com/CSC308/Pong-Game/assets/3814755/edb0afd9-e1c6-45f5-b9e4-022a1e170688)
