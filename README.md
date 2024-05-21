@@ -1,4 +1,5 @@
 ![Static Badge](https://img.shields.io/badge/author-javiergs-orange)
+![GitHub repo size](https://img.shields.io/github/repo-size/CSC308/Pong-Game)
 
 # Pong-Game
 A Pong Game implemented to exemplify Client-Server architecture and multi-threading
