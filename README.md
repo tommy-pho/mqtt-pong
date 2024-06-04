@@ -3,7 +3,7 @@
 ![GitHub Release](https://img.shields.io/github/v/release/CSC3100/Pong-Game)
 
 # Pong-Game
-A Pong Game implemented to exemplify Client-Server architecture and multi-threading
+A Pong Game implemented as a Java Desktop Application to exemplify Client-Server architecture and multi-threading
 <br>
 ## Running
 
