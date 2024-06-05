@@ -1,5 +1,7 @@
 package javiergs;
 
+import org.eclipse.paho.client.mqttv3.MqttException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -31,7 +33,7 @@ public class PongGameServer extends JFrame {
 		message("Server starting ....", JOptionPane.INFORMATION_MESSAGE);
 		try {
 			pongGame.connect();
-		} catch (IOException e) {
+		} catch (IOException | MqttException e) {
 			message("Server cannot run.", JOptionPane.ERROR_MESSAGE);
 			System.exit(1);
 		}
@@ -45,7 +47,7 @@ public class PongGameServer extends JFrame {
 		pongGame.setVisible(true);
 	}
 	
-	private void connect () throws IOException {
+	private void connect () throws IOException, MqttException {
 		PongBrain.getInstance().setWhoAmI(PongBrain.SERVER);
 		Server server = new Server();
 		if (server.isReady()) {

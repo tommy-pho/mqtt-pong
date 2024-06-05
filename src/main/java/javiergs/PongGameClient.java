@@ -1,5 +1,7 @@
 package javiergs;
 
+import org.eclipse.paho.client.mqttv3.MqttException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -31,7 +33,7 @@ public class PongGameClient extends JFrame {
 		message("Client starting ....", JOptionPane.INFORMATION_MESSAGE);
 		try {
 			pongGame.connect();
-		} catch (IOException e) {
+		} catch (IOException | MqttException e) {
 			message("Client cannot connected.", JOptionPane.ERROR_MESSAGE);
 			System.exit(1);
 		}
@@ -45,7 +47,7 @@ public class PongGameClient extends JFrame {
 		pongGame.setVisible(true);
 	}
 	
-	protected void connect() throws IOException {
+	protected void connect() throws IOException, MqttException {
 		PongBrain.getInstance().setWhoAmI(PongBrain.CLIENT);
 		Client client = new Client();
 		if (client.isReady()) {
